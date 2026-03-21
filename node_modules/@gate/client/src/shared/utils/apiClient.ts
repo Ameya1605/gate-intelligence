@@ -1,10 +1,10 @@
-import axios from 'axios';
+﻿import axios from 'axios';
 import type { ApiResponse, PaginatedResponse } from '@gate/shared-types';
 
 const USER_ID = 'demo-user';
 
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://gateserver-production.up.railway.app/api',
   headers: {
     'Content-Type': 'application/json',
     'x-user-id': USER_ID,
