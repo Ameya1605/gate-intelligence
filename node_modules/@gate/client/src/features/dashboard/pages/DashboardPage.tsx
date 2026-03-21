@@ -91,10 +91,10 @@ function DailyGreeting() {
     hour < 12 ? 'Good morning' :
     hour < 17 ? 'Good afternoon' : 'Good evening';
 
-  const daysToGate = Math.max(
-    0,
-    Math.ceil((new Date('2026-02-01').getTime() - Date.now()) / 86400000)
-  );
+ const daysToGate = Math.max(
+  0,
+  Math.ceil((new Date('2027-02-01').getTime() - Date.now()) / 86400000)
+);
 
   return (
     <div
@@ -119,7 +119,7 @@ function DailyGreeting() {
         {greeting}, Aspirant
       </p>
       <h1 className="font-display font-bold text-2xl mb-1 gradient-text">
-        GATE 2026 — {daysToGate} days remaining
+        GATE 2027 — {daysToGate} days remaining
       </h1>
       <p className="text-sm" style={{ color: 'var(--muted)' }}>
         Every hour of focused preparation counts. Let's analyse where you stand.

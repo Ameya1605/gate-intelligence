@@ -7,7 +7,7 @@ import type {
 import { computeSubjectAccuracy } from '../metrics/accuracy';
 import { buildEffortScore } from '../metrics/effortScore';
 
-const GATE_DATE = new Date('2026-02-01'); // Approximate GATE 2026 date
+const GATE_DATE = new Date('2027-02-01'); // Approximate GATE 2027 date
 const SUBJECT_WEIGHTS: Partial<Record<GATESubject, number>> = {
   'Engineering Mathematics': 15,
   'General Aptitude': 15,
