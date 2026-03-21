@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install && node node_modules/vite/bin/vite.js build",
+  "buildCommand": "npm install --prefix . && node node_modules/vite/bin/vite.js build",
   "outputDirectory": "dist",
-  "installCommand": "npm install"
+  "installCommand": "echo 'skip'"
 }
