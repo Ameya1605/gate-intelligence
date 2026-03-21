@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@gate/shared-types': path.resolve(__dirname, '../../packages/shared-types/src'),
+     '@gate/shared-types': path.resolve(__dirname, './shared-types/src'),
       '@': path.resolve(__dirname, './src'),
     },
   },

@@ -9,7 +9,7 @@
     "lint": "eslint src --ext ts,tsx"
   },
   "dependencies": {
-    "@gate/shared-types": "*",
+    "@gate/shared-types": "file:./shared-types",
     "@tanstack/react-query": "^5.13.4",
     "@tanstack/react-query-devtools": "^5.13.4",
     "axios": "^1.6.2",
