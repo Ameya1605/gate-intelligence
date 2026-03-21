@@ -5,16 +5,17 @@
     "lib": ["ES2020"],
     "outDir": "./dist",
     "rootDir": "./src",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
+    "baseUrl": ".",
     "paths": {
       "@gate/shared-types": ["../../packages/shared-types/src"],
       "@gate/analytics-engine": ["../../packages/analytics-engine/src"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../../packages/shared-types/src/**/*", "../../packages/analytics-engine/src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
