@@ -8,14 +8,13 @@
     "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@gate/shared-types": ["../../packages/shared-types/src"],
-      "@gate/analytics-engine": ["../../packages/analytics-engine/src"]
+      "@gate/shared-types": ["./shared-types/src"],
+      "@gate/analytics-engine": ["./analytics-engine/src"]
     }
   },
-  "include": ["src/**/*", "../../packages/shared-types/src/**/*", "../../packages/analytics-engine/src/**/*"],
+  "include": ["src/**/*", "./shared-types/src/**/*", "./analytics-engine/src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
