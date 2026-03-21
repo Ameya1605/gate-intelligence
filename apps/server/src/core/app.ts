@@ -23,8 +23,15 @@ async function loadRoutes(app: Application): Promise<void> {
 export async function createApp(): Promise<Application> {
   const app = express();
 
-  app.use(helmet());
-app.use(cors({ origin: '*' }));
+  app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id'],
+  }));
+
+  app.options('*', cors());
+
+  app.use(helmet({ crossOriginResourcePolicy: false }));
   app.use(express.json({ limit: '10mb' }));
   app.use(morgan('dev'));
 
