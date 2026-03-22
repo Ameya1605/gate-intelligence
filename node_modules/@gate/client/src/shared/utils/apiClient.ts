@@ -4,7 +4,7 @@ import type { ApiResponse, PaginatedResponse } from '@gate/shared-types';
 const USER_ID = 'demo-user';
 
 export const apiClient = axios.create({
-  baseURL: 'https://gateserver-production.up.railway.app/api',
+  baseURL: 'https://gate-intelligence.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
     'x-user-id': USER_ID,
@@ -48,3 +48,4 @@ export async function getPaginated<T>(
   const res = await apiClient.get<PaginatedResponse<T>>(url, { params });
   return res.data;
 }
+
