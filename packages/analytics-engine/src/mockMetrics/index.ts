@@ -1,4 +1,4 @@
-import type { MockTest, TrendPoint } from '@gate/shared-types';
+import type { MockTest, TrendPoint } from '../../../shared-types/src';
 
 export function computeAverageScore(mocks: MockTest[]): number {
   if (mocks.length === 0) return 0;

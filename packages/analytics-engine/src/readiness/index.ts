@@ -3,7 +3,7 @@ import type {
   MockTest,
   GATESubject,
   ReadinessScore,
-} from '@gate/shared-types';
+} from '../../../shared-types/src';
 import { computeSubjectAccuracy } from '../metrics/accuracy';
 import { buildEffortScore } from '../metrics/effortScore';
 

@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import type { LifestyleLog } from '@gate/shared-types';
+import type { LifestyleLog } from '../../../../../packages/shared-types/src';
 
 export type LifestyleLogDocument = LifestyleLog & Document;
 

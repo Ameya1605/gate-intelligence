@@ -4,7 +4,7 @@ import type {
   GATESubject,
   AccuracyMetrics,
   TrendPoint,
-} from '@gate/shared-types';
+} from '../../../shared-types/src';
 
 /**
  * Computes accuracy percentage from study sessions.

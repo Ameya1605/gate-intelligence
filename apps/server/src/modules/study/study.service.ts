@@ -4,7 +4,7 @@ import type {
   UpdateStudySessionInput,
   StudyQueryInput,
 } from './study.types';
-import type { StudySession, StudyHeatmapEntry } from '@gate/shared-types';
+import type { StudySession, StudyHeatmapEntry } from '../../../../../packages/shared-types/src';
 
 /**
  * All study business logic lives here.

@@ -2,7 +2,7 @@ import type {
   StudySession,
   GATESubject,
   ProductivityMetrics,
-} from '@gate/shared-types';
+} from '../../../shared-types/src';
 
 /**
  * Computes questions correct per study hour (efficiency).

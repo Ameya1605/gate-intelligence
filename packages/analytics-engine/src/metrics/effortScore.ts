@@ -2,7 +2,7 @@ import type {
   StudySession,
   MockTest,
   EffortScore,
-} from '@gate/shared-types';
+} from '../../../shared-types/src';
 
 const DAILY_GOAL_MINUTES = 240; // 4 hours
 const WEEKLY_GOAL_MINUTES = 1440; // 24 hours

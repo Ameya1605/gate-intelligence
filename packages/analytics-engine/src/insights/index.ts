@@ -3,7 +3,7 @@ import type {
   MockTest,
   InsightItem,
   GATESubject,
-} from '@gate/shared-types';
+} from '../../../shared-types/src';
 import { computeSubjectAccuracy, computeAccuracyTrend } from '../metrics/accuracy';
 import { computeConsistencyScore } from '../metrics/effortScore';
 

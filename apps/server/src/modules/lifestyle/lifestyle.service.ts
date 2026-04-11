@@ -1,5 +1,5 @@
 import { LifestyleLogModel } from './lifestyle.model';
-import type { LifestyleLog } from '@gate/shared-types';
+import type { LifestyleLog } from '../../../../../packages/shared-types/src';
 import { z } from 'zod';
 
 export const CreateLifestyleLogSchema = z.object({

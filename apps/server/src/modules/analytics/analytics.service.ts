@@ -4,7 +4,7 @@ import {
   buildProductivityMetrics,
   buildReadinessScore,
   generateInsights,
-} from '@gate/analytics-engine';
+} from '../../../../../packages/analytics-engine/src';
 import { studyService } from '../study/study.service';
 import { mocksService } from '../mocks/mocks.service';
 import type {
@@ -13,7 +13,7 @@ import type {
   ProductivityMetrics,
   ReadinessScore,
   InsightItem,
-} from '@gate/shared-types';
+} from '../../../../../packages/shared-types/src';
 
 /**
  * Analytics service acts as an orchestrator:

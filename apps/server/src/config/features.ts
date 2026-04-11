@@ -1,4 +1,4 @@
-import type { FeatureConfig } from '@gate/shared-types';
+import type { FeatureConfig } from '../../../../packages/shared-types/src';
 
 /**
  * Feature flags — toggle entire modules on/off.

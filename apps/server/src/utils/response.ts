@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import type { ApiResponse, PaginatedResponse } from '@gate/shared-types';
+import type { ApiResponse, PaginatedResponse } from '../../../../packages/shared-types/src';
 
 export function sendSuccess<T>(
   res: Response,

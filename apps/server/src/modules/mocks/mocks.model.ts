@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import type { MockTest, GATESubject } from '@gate/shared-types';
+import type { MockTest, GATESubject } from '../../../../../packages/shared-types/src';
 
 export type MockTestDocument = MockTest & Document;
 

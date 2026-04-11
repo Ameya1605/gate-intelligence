@@ -1,5 +1,5 @@
 import { MockTestModel } from './mocks.model';
-import type { MockTest } from '@gate/shared-types';
+import type { MockTest } from '../../../../../packages/shared-types/src';
 import type { CreateMockTestInput } from './mocks.types';
 
 export class MocksService {

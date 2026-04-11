@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import type { User } from '@gate/shared-types';
+import type { User } from '../../../../../packages/shared-types/src';
 import { Router, Request, Response } from 'express';
 import { sendSuccess, sendError } from '../../utils/response';
 

@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import type { StudySession, GATESubject, StudySessionType } from '@gate/shared-types';
+import type { StudySession, GATESubject, StudySessionType } from '../../../../../packages/shared-types/src';
 
 export type StudySessionDocument = StudySession & Document;
 
