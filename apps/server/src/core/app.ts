@@ -34,20 +34,27 @@ export async function createApp(): Promise<Application> {
   }));
 
   const allowedOrigins = [
-    process.env.CLIENT_URL || 'http://localhost:5173',
-    'https://gate-intelligence.vercel.app', // placeholder for your production URL
+    'http://localhost:5173',
+    'http://localhost:3000',
   ];
+
+  if (process.env.CLIENT_URL) {
+    allowedOrigins.push(process.env.CLIENT_URL);
+  }
 
   app.use(cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow if no origin (like mobile apps or curl) or if in allowed list
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
         callback(null, true);
       } else {
+        console.warn(`CORS blocked request from: ${origin}`);
         callback(new Error('Not allowed by CORS'));
       }
     },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id'],
+    credentials: true,
   }));
 
   app.options('*', cors());
