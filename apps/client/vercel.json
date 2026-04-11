@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install --prefix . && node node_modules/vite/bin/vite.js build",
+  "buildCommand": "cd ../.. && npm install && npm run build --workspace=@gate/client",
   "outputDirectory": "dist",
-  "installCommand": "echo 'skip'"
+  "installCommand": "cd ../.. && npm install"
 }
