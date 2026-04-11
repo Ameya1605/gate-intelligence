@@ -2,6 +2,8 @@ import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import compression from 'compression';
+import rateLimit from 'express-rate-limit';
 import { FEATURE_CONFIG } from '../config/features';
 
 async function loadRoutes(app: Application): Promise<void> {
@@ -23,8 +25,27 @@ async function loadRoutes(app: Application): Promise<void> {
 export async function createApp(): Promise<Application> {
   const app = express();
 
+  app.use(compression());
+  
+  app.use(rateLimit({
+    windowMs: 15 * 60 * 1000, 
+    max: 100, 
+    message: 'Too many requests from this IP, please try again later.',
+  }));
+
+  const allowedOrigins = [
+    process.env.CLIENT_URL || 'http://localhost:5173',
+    'https://gate-intelligence.vercel.app', // placeholder for your production URL
+  ];
+
   app.use(cors({
-    origin: '*',
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id'],
   }));
@@ -33,7 +54,7 @@ export async function createApp(): Promise<Application> {
 
   app.use(helmet({ crossOriginResourcePolicy: false }));
   app.use(express.json({ limit: '10mb' }));
-  app.use(morgan('dev'));
+  app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
   app.get('/health', (_req, res) => {
     res.json({

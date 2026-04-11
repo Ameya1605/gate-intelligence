@@ -12,9 +12,11 @@
   "dependencies": {
     "@gate/analytics-engine": "*",
     "@gate/shared-types": "*",
+    "compression": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-rate-limit": "^8.3.2",
     "helmet": "^7.1.0",
     "mongoose": "^8.0.0",
     "morgan": "^1.10.0",
