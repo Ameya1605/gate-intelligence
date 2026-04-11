@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { PageWrapper, StatCard, Card, SectionHeader, Spinner } from '@/shared/components/ui';
 import { widgetRegistry } from '../widgetRegistry';
 import { initDashboardWidgets } from '../widgets/index';
 import { useAnalyticsDashboard } from '@/features/analytics/hooks/useAnalytics';
 import { InsightsPanel } from '@/features/analytics/components/InsightsPanel';
 import { isFeatureEnabled } from '@/app/featureRegistry';
+import type { FeatureName } from '@gate/shared-types';
 
 // Initialize widgets once (idempotent on re-render because registry checks ids)
 initDashboardWidgets();
@@ -12,7 +13,7 @@ initDashboardWidgets();
 function WidgetRenderer() {
   const widgets = widgetRegistry
     .getAll()
-    .filter((w) => isFeatureEnabled(w.feature as any));
+    .filter((w) => isFeatureEnabled(w.feature as FeatureName));
 
   const sizeClass: Record<string, string> = {
     sm: 'col-span-1',
@@ -91,10 +92,12 @@ function DailyGreeting() {
     hour < 12 ? 'Good morning' :
     hour < 17 ? 'Good afternoon' : 'Good evening';
 
- const daysToGate = Math.max(
-  0,
-  Math.ceil((new Date('2027-02-01').getTime() - Date.now()) / 86400000)
-);
+  const [daysToGate] = useState(() => {
+    return Math.max(
+      0,
+      Math.ceil((new Date('2027-02-01').getTime() - Date.now()) / 86400000)
+    );
+  });
 
   return (
     <div

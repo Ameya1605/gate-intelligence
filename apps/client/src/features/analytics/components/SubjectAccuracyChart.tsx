@@ -28,13 +28,14 @@ function barColor(value: number): string {
   return 'var(--warn)';
 }
 
-const CustomTooltip = ({ active, payload, label }: any) => {
+const CustomTooltip = ({ active, payload, label }: { active?: boolean; payload?: unknown[]; label?: string }) => {
   if (active && payload?.length) {
+    const p0 = payload[0] as { value: number };
     return (
       <div className="card px-3 py-2 text-xs" style={{ minWidth: 160 }}>
         <p className="font-display font-semibold mb-1" style={{ color: 'var(--text)' }}>{label}</p>
-        <p style={{ color: barColor(payload[0].value) }}>
-          Accuracy: {payload[0].value}%
+        <p style={{ color: barColor(p0.value) }}>
+          Accuracy: {p0.value}%
         </p>
       </div>
     );

@@ -10,7 +10,7 @@ function SessionRow({ session, onDelete }: { session: StudySession; onDelete: (i
     ? Math.round((session.questionsCorrect ?? 0) / session.questionsAttempted * 100)
     : null;
 
-  const typeColorMap: Record<string, string> = {
+  const typeColorMap: Record<string, 'primary' | 'muted' | 'gold' | 'warn' | 'accent'> = {
     practice: 'primary',
     reading: 'muted',
     revision: 'gold',
@@ -33,7 +33,7 @@ function SessionRow({ session, onDelete }: { session: StudySession; onDelete: (i
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <Badge variant={typeColorMap[session.sessionType] as any}>
+        <Badge variant={typeColorMap[session.sessionType] || 'primary'}>
           {session.sessionType}
         </Badge>
         <span className="text-xs font-mono" style={{ color: 'var(--muted)' }}>

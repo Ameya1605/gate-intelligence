@@ -6,6 +6,28 @@ import type { MockTest } from '@gate/shared-types';
 
 interface Props { mocks: MockTest[] }
 
+interface ChartData {
+  testName: string;
+  date: string;
+  score: number;
+  accuracy: number;
+}
+
+const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: unknown[] }) => {
+  if (!active || !payload?.length) return null;
+  const d = (payload[0] as { payload: ChartData }).payload;
+  return (
+    <div className="card px-3 py-2 text-xs space-y-1">
+      <p className="font-display font-semibold" style={{ color: 'var(--text)' }}>
+        {d.testName}
+      </p>
+      <p style={{ color: 'var(--muted)' }}>{d.date}</p>
+      <p style={{ color: 'var(--primary)' }}>Score: {d.score}%</p>
+      <p style={{ color: 'var(--accent)' }}>Accuracy: {d.accuracy}%</p>
+    </div>
+  );
+};
+
 export function MockTrendChart({ mocks }: Props) {
   const sorted = [...mocks].sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -24,19 +46,6 @@ export function MockTrendChart({ mocks }: Props) {
   const avg = chartData.length
     ? Math.round(chartData.reduce((a, d) => a + d.score, 0) / chartData.length)
     : 0;
-
-  const CustomTooltip = ({ active, payload }: any) => {
-    if (!active || !payload?.length) return null;
-    const d = payload[0].payload;
-    return (
-      <div className="card px-3 py-2 text-xs space-y-1">
-        <p className="font-display font-semibold" style={{ color: 'var(--text)' }}>{d.testName}</p>
-        <p style={{ color: 'var(--muted)' }}>{d.date}</p>
-        <p style={{ color: 'var(--primary)' }}>Score: {d.score}%</p>
-        <p style={{ color: 'var(--accent)' }}>Accuracy: {d.accuracy}%</p>
-      </div>
-    );
-  };
 
   if (!chartData.length) {
     return (

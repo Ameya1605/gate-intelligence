@@ -37,7 +37,7 @@ function getLast52Weeks(): string[][] {
   return weeks;
 }
 
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
 
 export function StudyHeatmap() {
   const { data, isLoading } = useStudyHeatmap(365);

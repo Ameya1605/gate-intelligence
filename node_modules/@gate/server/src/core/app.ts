@@ -45,6 +45,14 @@ export async function createApp(): Promise<Application> {
     });
   });
 
+  app.get('/ping', (_req, res) => {
+    res.status(200).send('pong');
+  });
+
+  app.get('/', (_req, res) => {
+    res.status(200).send('GATE Intelligence Server is alive');
+  });
+
   await loadRoutes(app);
 
   app.use((_req, res) => {
