@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import type { StudyHeatmapEntry } from '@gate/shared-types';
 import { Spinner } from '@/shared/components/ui';
 import { useStudyHeatmap } from '../hooks/useStudy';
-import { format, subWeeks, startOfSunday, addDays, getMonth } from 'date-fns';
+import { format, subWeeks, startOfWeek, addDays, getMonth } from 'date-fns';
 
 function getColor(minutes: number): string {
   if (minutes === 0) return 'var(--border)';
@@ -30,7 +30,7 @@ export function StudyHeatmap() {
 
   const weeks = useMemo(() => {
     const today = new Date();
-    const sunday = startOfSunday(subWeeks(today, 51));
+    const sunday = startOfWeek(subWeeks(today, 51), { weekStartsOn: 0 });
     const result: string[][] = [];
 
     for (let w = 0; w < 52; w++) {
