@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "cd ../.. && npm install",
-    "build": "cd ../.. && npm install && cd apps/client && tsc && vite build",
+    "build": "npx tsc && npx vite build",
     "preview": "vite preview",
     "lint": "eslint ."
   },
